@@ -1,18 +1,18 @@
 # PROBLEM 1
-n = int(input("Enter no of recorded time ranges : "))
-start_end = []
-for i in range(n):
-    start, end = map(int, input("enter the intervals start and end : ").split())
-    start_end.append([start, end])
-start_end.sort()
-merged = []
-for i in start_end:
-    if not merged or merged[-1][1] < i[0]:
-        merged.append(i)
-    else:
-        merged[-1][1] = max(merged[-1][1], i[1])
-for start, end in merged:
-    print(start, end)
+    n = int(input("Enter no of recorded time ranges : "))
+    start_end = []
+    for i in range(n):
+        start, end = map(int, input("enter the intervals start and end : ").split())
+        start_end.append([start, end])
+    start_end.sort()
+    merged = []
+    for i in start_end:
+        if not merged or merged[-1][1] < i[0]:
+            merged.append(i)
+        else:
+            merged[-1][1] = max(merged[-1][1], i[1])
+    for start, end in merged:
+        print(start, end)
 
 
 
