@@ -1,63 +1,48 @@
 # PROBLEM 1
 n = int(input("Enter no of recorded time ranges : "))
-
 start_end = []
-
 for i in range(n):
     start, end = map(int, input("enter the intervals start and end : ").split())
     start_end.append([start, end])
-
 start_end.sort()
-
 merged = []
-
 for i in start_end:
     if not merged or merged[-1][1] < i[0]:
         merged.append(i)
     else:
         merged[-1][1] = max(merged[-1][1], i[1])
-
 for start, end in merged:
     print(start, end)
 
 
+
+
 # PROBLEM 2
 n = int(input("Enter no of readings : "))
-
 signal_readings = list(map(int, input("Enter signal values with space seperated : ").split()))
-
 k = int(input("Enter window size: "))
-
 current_sum = sum(signal_readings[:k])
 max_sum = current_sum
-
 for i in range(k, n):
     current_sum = current_sum - signal_readings[i - k] + signal_readings[i]
-
     if current_sum > max_sum:
         max_sum = current_sum
-
 print("Maximum Signal Strength:", max_sum)
+
+
 
 
 # PROBLEM 3
 s = input("Enter the string : ")
-
 seen = set()
-
 left = 0
 max_length = 0
-
 for right in range(len(s)):
-
     while s[right] in seen:
         seen.remove(s[left])
         left += 1
-
     seen.add(s[right])
-
     current_length = right - left + 1
     if current_length > max_length:
         max_length = current_length
-
 print(max_length)
