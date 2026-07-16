@@ -18,31 +18,31 @@
 
 
 # PROBLEM 2
-n = int(input("Enter no of readings : "))
-signal_readings = list(map(int, input("Enter signal values with space seperated : ").split()))
-k = int(input("Enter window size: "))
-current_sum = sum(signal_readings[:k])
-max_sum = current_sum
-for i in range(k, n):
-    current_sum = current_sum - signal_readings[i - k] + signal_readings[i]
-    if current_sum > max_sum:
-        max_sum = current_sum
-print("Maximum Signal Strength:", max_sum)
+    n = int(input("Enter no of readings : "))
+    signal_readings = list(map(int, input("Enter signal values with space seperated : ").split()))
+    k = int(input("Enter window size: "))
+    current_sum = sum(signal_readings[:k])
+    max_sum = current_sum
+    for i in range(k, n):
+        current_sum = current_sum - signal_readings[i - k] + signal_readings[i]
+        if current_sum > max_sum:
+            max_sum = current_sum
+    print("Maximum Signal Strength:", max_sum)
 
 
 
 
 # PROBLEM 3
-s = input("Enter the string : ")
-seen = set()
-left = 0
-max_length = 0
-for right in range(len(s)):
-    while s[right] in seen:
-        seen.remove(s[left])
-        left += 1
-    seen.add(s[right])
-    current_length = right - left + 1
-    if current_length > max_length:
-        max_length = current_length
-print(max_length)
+    s = input("Enter the string : ")
+    seen = set()
+    left = 0
+    max_length = 0
+    for right in range(len(s)):
+        while s[right] in seen:
+            seen.remove(s[left])
+            left += 1
+        seen.add(s[right])
+        current_length = right - left + 1
+        if current_length > max_length:
+            max_length = current_length
+    print(max_length)
